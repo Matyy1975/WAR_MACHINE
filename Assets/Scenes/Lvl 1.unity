@@ -1120,6 +1120,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1206,6 +1207,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f299fed9238ed0c4681cfc93b3ead046, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
 --- !u!1 &550853026
 GameObject:
   m_ObjectHideFlags: 0
@@ -1514,7 +1528,6 @@ MonoBehaviour:
   speed: 1
   fireRate: 5
   velocidadBala: 5
-  rb: {fileID: 714886099}
   balaPrefab: {fileID: 0}
 --- !u!50 &714886099
 Rigidbody2D:
@@ -2971,7 +2984,6 @@ MonoBehaviour:
   speed: 1
   fireRate: 5
   velocidadBala: 5
-  rb: {fileID: 1445053044}
   balaPrefab: {fileID: 0}
 --- !u!61 &1445053048
 BoxCollider2D:
@@ -3189,7 +3201,6 @@ MonoBehaviour:
   speed: 1
   fireRate: 5
   velocidadBala: 5
-  rb: {fileID: 1460548293}
   balaPrefab: {fileID: 0}
 --- !u!50 &1460548293
 Rigidbody2D:
@@ -4118,7 +4129,6 @@ MonoBehaviour:
   speed: 1
   fireRate: 5
   velocidadBala: 5
-  rb: {fileID: 1607172679}
   balaPrefab: {fileID: 0}
 --- !u!50 &1607172679
 Rigidbody2D:
@@ -4904,7 +4914,6 @@ MonoBehaviour:
   speed: 1
   fireRate: 5
   velocidadBala: 5
-  rb: {fileID: 1930905342}
   balaPrefab: {fileID: 0}
 --- !u!50 &1930905342
 Rigidbody2D:
