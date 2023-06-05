@@ -29,9 +29,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2658406851339622307}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.9, y: 255.06, z: 0.02963972}
-  m_LocalScale: {x: 0.13300121, y: 0.15000665, z: 1}
+  m_LocalScale: {x: 0.3860892, y: 0.42219374, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -194,5 +194,4 @@ MonoBehaviour:
   speed: 0
   fireRate: 2
   velocidadBala: 5
-  rb: {fileID: 0}
   balaPrefab: {fileID: 0}
