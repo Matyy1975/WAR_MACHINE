@@ -5540,6 +5540,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6806083838882698175, guid: fd39875411a29914c80a131c89c1220a, type: 3}
+      propertyPath: detectionRadius
+      value: 6.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6806083838882698175, guid: fd39875411a29914c80a131c89c1220a, type: 3}
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 753858394}
@@ -5600,7 +5604,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5294001797007922050, guid: 55956c75f82b0fd4a8e378fd5cbd7254, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 55956c75f82b0fd4a8e378fd5cbd7254, type: 3}
 --- !u!1001 &9207296969189470678
 PrefabInstance:
