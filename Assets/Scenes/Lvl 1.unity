@@ -1609,7 +1609,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3064736616495031721, guid: 18863ba55cc8bec4b8368e56c600a67b, type: 3}
   m_PrefabInstance: {fileID: 3064736616837763827}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &753858395
+--- !u!114 &753858399
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1618,10 +1618,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 753858391}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23a736cdfee4d394ab6ab88c0d4fd903, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ef3ac93e6bc07a48ad2a59cf4d8d4be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  bulletPrefab: {fileID: 6458471471646459912, guid: c7541dc8b96813847baa6970bc7c896c, type: 3}
+  firePoint: {fileID: 753858394}
+  fireRate: 0.5
+  bulletSpeed: 10
 --- !u!213 &762043313
 Sprite:
   m_ObjectHideFlags: 0
@@ -5312,10 +5315,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3064736616495031720, guid: 18863ba55cc8bec4b8368e56c600a67b, type: 3}
-      propertyPath: explosionEffect
-      value: 
-      objectReference: {fileID: 1445053042}
     - target: {fileID: 3064736616495031721, guid: 18863ba55cc8bec4b8368e56c600a67b, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -5604,8 +5603,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5294001797007922050, guid: 55956c75f82b0fd4a8e378fd5cbd7254, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55956c75f82b0fd4a8e378fd5cbd7254, type: 3}
 --- !u!1001 &9207296969189470678
 PrefabInstance:
