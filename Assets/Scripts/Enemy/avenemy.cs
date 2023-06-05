@@ -9,14 +9,13 @@ public class avenemy : MonoBehaviour
     public float speed = 5f;
     public float fireRate = 2f; // Tasa de disparo del enemigo
     public float velocidadBala = 5f; // Velocidad de la bala
-    public Rigidbody2D rb;
+    
     public GameObject balaPrefab; // Prefab de la bala
 
     private bool playerIsDead = false;
 
     void Start()
     {
-        rb.velocity = transform.up * speed;
         InvokeRepeating("Disparar", fireRate, fireRate);
     }
 

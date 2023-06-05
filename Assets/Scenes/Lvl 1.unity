@@ -2785,9 +2785,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1394392051}
   - component: {fileID: 1394392052}
-  - component: {fileID: 1394392054}
-  - component: {fileID: 1394392056}
-  - component: {fileID: 1394392055}
   m_Layer: 0
   m_Name: LevelController
   m_TagString: Untagged
@@ -2848,57 +2845,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &1394392054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1394392049}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 488a63adb10a1d14c9ffc6fb33820c82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tilemap: {fileID: 1552000524}
-  speed: 2
-  levelLimit: 3
-  stopTime: 10
-  stopPosition: {x: 0, y: -356, z: 0}
---- !u!114 &1394392055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1394392049}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 488a63adb10a1d14c9ffc6fb33820c82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tilemap: {fileID: 493556150}
-  speed: 2
-  levelLimit: 3
-  stopTime: 2
-  stopPosition: {x: 0, y: 356, z: 0}
---- !u!114 &1394392056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1394392049}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 488a63adb10a1d14c9ffc6fb33820c82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tilemap: {fileID: 0}
-  speed: 2
-  levelLimit: 3
-  stopTime: 2
-  stopPosition: {x: 0, y: -356, z: 0}
 --- !u!1 &1445053042
 GameObject:
   m_ObjectHideFlags: 0
@@ -3728,11 +3674,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &1552000524 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9003710180478785914, guid: 55956c75f82b0fd4a8e378fd5cbd7254, type: 3}
-  m_PrefabInstance: {fileID: 9003710181225283446}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1552000525 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9003710180478785915, guid: 55956c75f82b0fd4a8e378fd5cbd7254, type: 3}

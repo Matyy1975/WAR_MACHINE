@@ -19,12 +19,7 @@ public class barcontroller : MonoBehaviour
 
     private void Start()
     {
-        LevelMover levelMovement = FindObjectOfType<LevelMover>();
-
-        if (levelMovement != null)
-        {
-            levelSpeed = levelMovement.speed;
-        }
+        
     }
 
     private void Update()

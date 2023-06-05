@@ -22,12 +22,7 @@ public class CannonController : MonoBehaviour
     private float shootAngle; // Nueva variable para el ángulo de disparo
     private void Start()
     {
-        LevelMover levelMovement = FindObjectOfType<LevelMover>();
-
-        if (levelMovement != null)
-        {
-            levelSpeed = levelMovement.speed;
-        }
+      
     }
 
     private void Update()
