@@ -4,46 +4,43 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public GameObject explosionEffect; // efecto de explosión cuando el jugador colisiona
-
+    public GameObject explosionEffect;
     public float speed = 5f;
     public float horizontalLimit = 2.5f;
     public float verticalLimit = 4.5f;
     public int score;
-    public GameObject bulletPrefab; // Referencia al prefab de la bala
-    public float bulletSpeed = 10f; // Velocidad a la que se mueve la bala
+    public GameObject bulletPrefab;
+    public float bulletSpeed = 10f;
+
+    public int vidaMaxima = 100;
+    private int vidaActual;
 
     private Rigidbody2D rb;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent <Rigidbody2D>();
+        vidaActual = vidaMaxima;
     }
 
     void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            // Crea una instancia de la bala en la posición del jugador
             GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-            // Obtener el componente Rigidbody2D de la bala y establecer su velocidad
             Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
             bulletRb.velocity = new Vector2(0, bulletSpeed);
         }
 
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
-
         Vector2 movement = new Vector2(horizontalInput, verticalInput);
 
-        // Limit the player's movement to a certain area
         Vector3 clampedPosition = transform.position;
         clampedPosition.x = Mathf.Clamp(clampedPosition.x, -horizontalLimit, horizontalLimit);
         clampedPosition.y = Mathf.Clamp(clampedPosition.y, -verticalLimit, verticalLimit);
         transform.position = clampedPosition;
 
-        // Move the player based on input
         rb.velocity = movement * speed;
     }
 
@@ -51,12 +48,18 @@ public class PlayerController : MonoBehaviour
     {
         if (col.gameObject.CompareTag("avenemy"))
         {
-            // Instancia un efecto de explosión en la posición del jugador
             Instantiate(explosionEffect, transform.position, Quaternion.identity);
 
-            gameObject.SetActive(false); // Desactivar el jugador en vez de destruirlo
+            // Reducir la vida del jugador cuando colisiona con un enemigo
+            TomarDanio(10); // Puedes ajustar la cantidad de daño según tus necesidades
 
-            Destroy(col.gameObject); // destruir el avión enemigo
+            if (vidaActual <= 0)
+            {
+                // El jugador se queda sin vida, puedes agregar aquí lo que deseas hacer en caso de derrota.
+                gameObject.SetActive(false);
+            }
+
+            Destroy(col.gameObject);
         }
     }
 
@@ -65,28 +68,30 @@ public class PlayerController : MonoBehaviour
         if (col.gameObject.CompareTag("enemy"))
         {
             Destroy(col.gameObject);
-            gameObject.SetActive(false);
-        }
-        else if (col.gameObject.CompareTag("Portal"))
-        {
-            
-        }
-        else if (col.gameObject.CompareTag("Bullet"))
-        {
-            // Destruye la bala
-            Destroy(col.gameObject);
 
-            // Desactiva el componente PlayerController del jugador
-            GetComponent<PlayerController>().enabled = false;
+            TomarDanio(5); // Reducir la vida cuando colisiona con un enemigo
 
-            // Desactiva el objeto del jugador
-            gameObject.SetActive(false);
+            if (vidaActual <= 0)
+            {
+                // El jugador se queda sin vida, puedes agregar aquí lo que deseas hacer en caso de derrota.
+                gameObject.SetActive(false);
+            }
         }
     }
 
+    void TomarDanio(int cantidad)
+    {
+        vidaActual -= cantidad;
+        vidaActual = Mathf.Max(0, vidaActual);
+    }
+    public int GetVidaActual()
+    {
+        return vidaActual;
+    }
 
-
-
-
-
+    public void RecibirDanio(int cantidad)
+    {
+        vidaActual -= cantidad;
+        vidaActual = Mathf.Max(0, vidaActual);
+    }
 }
