@@ -12,6 +12,22 @@ public class PlayerController : MonoBehaviour
     public GameObject bulletPrefab;
     public float bulletSpeed = 10f;
 
+    public KeyCode moveLeftKey = KeyCode.LeftArrow;
+    public KeyCode moveRightKey = KeyCode.RightArrow;
+    public KeyCode moveUpKey = KeyCode.UpArrow;
+    public KeyCode moveDownKey = KeyCode.DownArrow;
+
+
+    public GameObject objetoIzquierda;
+    public GameObject objetoDerecha;
+    public GameObject objetoArriba;
+    public GameObject objetoAbajo;
+
+
+    private bool moviendoIzquierda;
+    private bool moviendoDerecha;
+    private bool moviendoArriba;
+    private bool moviendoAbajo;
     public int vidaMaxima = 100;
     private int vidaActual;
 
@@ -25,6 +41,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
@@ -32,16 +49,79 @@ public class PlayerController : MonoBehaviour
             bulletRb.velocity = new Vector2(0, bulletSpeed);
         }
 
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
-        Vector2 movement = new Vector2(horizontalInput, verticalInput);
+        float horizontalInput = 0f;
+        float verticalInput = 0f;
 
-        Vector3 clampedPosition = transform.position;
-        clampedPosition.x = Mathf.Clamp(clampedPosition.x, -horizontalLimit, horizontalLimit);
-        clampedPosition.y = Mathf.Clamp(clampedPosition.y, -verticalLimit, verticalLimit);
-        transform.position = clampedPosition;
+        if (Input.GetKey(moveLeftKey))
+        {
+            horizontalInput = -1f;
+        }
+        else if (Input.GetKey(moveRightKey))
+        {
+            horizontalInput = 1f;
+        }
 
-        rb.velocity = movement * speed;
+        if (Input.GetKey(moveDownKey))
+        {
+            verticalInput = -1f;
+        }
+        else if (Input.GetKey(moveUpKey))
+        {
+            verticalInput = 1f;
+        }
+
+        Vector2 movement = new Vector2(horizontalInput, verticalInput).normalized * speed * Time.deltaTime;
+
+        rb.MovePosition(rb.position + movement);
+
+
+
+
+
+
+        if (horizontalInput < 0)
+        {
+            objetoIzquierda.SetActive(true);
+            objetoDerecha.SetActive(false);
+            moviendoIzquierda = true;
+            moviendoDerecha = false;
+        }
+        else if (horizontalInput > 0)
+        {
+            objetoDerecha.SetActive(true);
+            objetoIzquierda.SetActive(false);
+            moviendoDerecha = true;
+            moviendoIzquierda = false;
+        }
+        else
+        {
+            objetoIzquierda.SetActive(false);
+            objetoDerecha.SetActive(false);
+            moviendoIzquierda = false;
+            moviendoDerecha = false;
+        }
+
+        if (verticalInput < 0)
+        {
+            objetoAbajo.SetActive(true);
+            objetoArriba.SetActive(false);
+            moviendoAbajo = true;
+            moviendoArriba = false;
+        }
+        else if (verticalInput > 0)
+        {
+            objetoArriba.SetActive(true);
+            objetoAbajo.SetActive(false);
+            moviendoArriba = true;
+            moviendoAbajo = false;
+        }
+        else
+        {
+            objetoAbajo.SetActive(false);
+            objetoArriba.SetActive(false);
+            moviendoAbajo = false;
+            moviendoArriba = false;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D col)
